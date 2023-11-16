@@ -1,4 +1,4 @@
-module.exports = function (title){
+module.exports = function (title,array){
 
     //trasformo argomento in stringa
     if(typeof title !== "string"){
@@ -14,7 +14,7 @@ module.exports = function (title){
 
     let toReturn = titleLowerCase.trim();
 
-    return toReturn
+    slug = toReturn
       .split("").map((char) => {
         const invalidChars = "!\"£$%&_'/()=?^*§°ç@#[]{}|\\";
         const replaceMap = {
@@ -37,6 +37,22 @@ module.exports = function (title){
         return char;
       })
       .join("")
+
+      return slug
+
+      // aggiungo numero se slug già presente in un db
+
+    //   let counter = 1
+
+    //   while (array.find((elem) => elem.slug === slug)) {
+    //     slugWithNum = `${slug}-${counter}` ;
+    //     counter += 1;
+    //   }
+
+
+    //   return slugWithNum
+
+
 
 
 

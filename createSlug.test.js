@@ -6,16 +6,32 @@
 //createSlug dovrebbe lanciare un errore se manca l’array dei post
 const createSlug = require("./createSlug")
 const {test, expect} = require("@jest/globals")
+const titleArray = require("./db.json")
 
 
-test("dovrebbe ritornare una stringa in lowercase" , () =>{
-    const title = "La Grande Onda Di Hokusai"
+test("dovrebbe ritornare una stringa in lowercase con i trattini tra gli spazi" , () =>{
+    const title = "Il Monte Fuji"
     const result = createSlug(title)
 
-    expect(result).toBe("la-grande-onda-di-hokusai")
+    expect(result).toBe("il-monte-fuji")
 
 })
 
+test("dovrebbe gestire i caratteri accentati" , () =>{
+    const title = "il montè fujì"
+    const result = createSlug(title)
+
+    expect(result).toBe("il-monte-fuji")
+
+})
+
+test("dovrebbe gestire i caratteri speciali" , () =>{
+    const title = "il montè fujì///&%"
+    const result = createSlug(title)
+
+    expect(result).toBe("il-monte-fuji")
+
+})
 
 
 
