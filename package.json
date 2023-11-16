@@ -1,0 +1,28 @@
+{
+  "name": "express-tdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silviosalza/express-tdd.git"
+  },
+  "author": "Silvio Salza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silviosalza/express-tdd/issues"
+  },
+  "homepage": "https://github.com/silviosalza/express-tdd#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
