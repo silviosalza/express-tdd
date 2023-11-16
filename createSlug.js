@@ -38,23 +38,20 @@ module.exports = function (title,array){
       })
       .join("")
 
-      return slug
 
-      // aggiungo numero se slug già presente in un db
+       //aggiungo numero se slug già presente in un db
 
-    //   let counter = 1
+       let counter = 1
+       let slugToCheck = slug
 
-    //   while (array.find((elem) => elem.slug === slug)) {
-    //     slugWithNum = `${slug}-${counter}` ;
-    //     counter += 1;
-    //   }
-
-
-    //   return slugWithNum
+       while (array.find((elem) => elem.slug === slugToCheck)) {
+        slugToCheck = `${this.slug}${this.counter}` ;
+        
+         counter += 1;
+       }
 
 
-
-
+       return slugToCheck
 
 }
 

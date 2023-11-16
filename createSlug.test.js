@@ -7,31 +7,41 @@
 const createSlug = require("./createSlug")
 const {test, expect} = require("@jest/globals")
 const titleArray = require("./db.json")
+console.log(titleArray);
 
 
 test("dovrebbe ritornare una stringa in lowercase con i trattini tra gli spazi" , () =>{
-    const title = "Il Monte Fuji"
-    const result = createSlug(title)
+    const title = "Piantagioni di Hokkaido"
+    const result = createSlug(title,titleArray)
 
-    expect(result).toBe("il-monte-fuji")
+    expect(result).toBe("piantagioni-di-hokkaido")
 
 })
 
 test("dovrebbe gestire i caratteri accentati" , () =>{
-    const title = "il montè fujì"
-    const result = createSlug(title)
+    const title = "Piantagioni dì Hokkàido"
+    const result = createSlug(title,titleArray)
 
-    expect(result).toBe("il-monte-fuji")
+    expect(result).toBe("piantagioni-di-hokkaido")
 
 })
 
 test("dovrebbe gestire i caratteri speciali" , () =>{
-    const title = "il montè fujì///&%"
-    const result = createSlug(title)
+    const title = "Piantagioni dì Hokkà!!!ido"
+    const result = createSlug(title,titleArray)
 
-    expect(result).toBe("il-monte-fuji")
+    expect(result).toBe("piantagioni-di-hokkaido")
 
 })
+
+test("dovrebbe aggiungere un numero in caso di slug coincidenti" , () =>{
+    const title = "il-monte-fuji"
+    const result = createSlug(title,titleArray)
+
+    expect(result).toBe("il-monte-fuji1")
+
+})
+
 
 
 
